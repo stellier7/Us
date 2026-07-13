@@ -36,7 +36,7 @@ export default function HomePage() {
           transition={{ delay: 0.2 }}
           className="text-body-large text-accent italic leading-relaxed text-balance"
         >
-          "{quote}"
+          &ldquo;{quote}&rdquo;
         </motion.blockquote>
 
         {/* Main CTA */}

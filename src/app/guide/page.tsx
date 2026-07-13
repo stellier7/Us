@@ -71,7 +71,7 @@ export default function GuidePage() {
           animate={{ opacity: 1 }}
           className="text-body text-accent text-center"
         >
-          When you're ready to talk, try saying:
+          When you&apos;re ready to talk, try saying:
         </motion.h2>
 
         {/* Sentence */}

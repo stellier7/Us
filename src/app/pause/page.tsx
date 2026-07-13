@@ -159,16 +159,16 @@ export default function PausePage() {
             )}
 
             {/* Reminders */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
-              className="space-y-6 text-body text-accent-light max-w-md mx-auto"
-            >
-              <p>My partner is not my enemy.</p>
-              <p>I don't have to solve this right now.</p>
-              <p>I will come back.</p>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2 }}
+                className="space-y-6 text-body text-accent-light max-w-md mx-auto"
+              >
+                <p>My partner is not my enemy.</p>
+                <p>I don&apos;t have to solve this right now.</p>
+                <p>I will come back.</p>
+              </motion.div>
 
             {/* Early exit option */}
             {timeLeft > 0 && (
