@@ -2,10 +2,17 @@
  * Local storage utilities for multi-couple session management
  */
 
-import type { Session, StorageData, NeedType, Reflection } from './types';
+import type {
+  Session,
+  StorageData,
+  SkillReflection,
+  ConnectionExerciseResult,
+} from './types';
 
 const STORAGE_KEY = 'us-app-data';
 const CURRENT_SESSION_KEY = 'us-current-session';
+const SKILL_REFLECTIONS_KEY = 'us-skill-reflections';
+const CONNECTION_RESULTS_KEY = 'us-connection-results';
 
 /**
  * Generate a unique ID
@@ -147,4 +154,70 @@ export function getSessions(): Session[] {
  */
 export function getSessionsCount(): number {
   return getSessions().length;
+}
+
+/**
+ * Skill reflections - private practice notes for the Skills library.
+ * Keyed by skillId, one latest reflection kept per skill.
+ */
+export function getSkillReflections(): Record<string, SkillReflection> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const data = localStorage.getItem(SKILL_REFLECTIONS_KEY);
+    return data ? JSON.parse(data) : {};
+  } catch (error) {
+    console.error('Error reading skill reflections:', error);
+    return {};
+  }
+}
+
+export function getSkillReflection(skillId: string): SkillReflection | null {
+  const all = getSkillReflections();
+  return all[skillId] || null;
+}
+
+export function saveSkillReflection(skillId: string, answers: Record<string, string>): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const all = getSkillReflections();
+    all[skillId] = { skillId, answers, timestamp: Date.now() };
+    localStorage.setItem(SKILL_REFLECTIONS_KEY, JSON.stringify(all));
+  } catch (error) {
+    console.error('Error saving skill reflection:', error);
+  }
+}
+
+export function getPracticedSkillsCount(): number {
+  return Object.keys(getSkillReflections()).length;
+}
+
+/**
+ * Together - completed connection exercise results (both partners' answers)
+ */
+export function getConnectionResults(): ConnectionExerciseResult[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const data = localStorage.getItem(CONNECTION_RESULTS_KEY);
+    return data ? JSON.parse(data) : [];
+  } catch (error) {
+    console.error('Error reading connection results:', error);
+    return [];
+  }
+}
+
+export function saveConnectionResult(result: ConnectionExerciseResult): void {
+  if (typeof window === 'undefined') return;
+  try {
+    const all = getConnectionResults();
+    all.push(result);
+    localStorage.setItem(CONNECTION_RESULTS_KEY, JSON.stringify(all));
+  } catch (error) {
+    console.error('Error saving connection result:', error);
+  }
+}
+
+export function getLatestConnectionResult(exerciseId: string): ConnectionExerciseResult | null {
+  const all = getConnectionResults().filter((r) => r.exerciseId === exerciseId);
+  if (all.length === 0) return null;
+  return all[all.length - 1];
 }
