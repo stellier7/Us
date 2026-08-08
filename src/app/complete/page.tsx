@@ -9,7 +9,7 @@ import { PageTransition } from '@/components/PageTransition';
 import { PrimaryButton } from '@/components/PrimaryButton';
 import { completeSession, getSessionsCount } from '@/lib/storage';
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { Heart, BookOpen } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function CompletePage() {
@@ -76,10 +76,18 @@ export default function CompletePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
+          className="space-y-4"
         >
           <PrimaryButton onClick={handleGoHome} size="large">
             Back to home
           </PrimaryButton>
+          <button
+            onClick={() => router.push('/skills')}
+            className="flex items-center gap-2 mx-auto text-sm text-accent-light hover:text-accent transition-colors"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            Build a skill for next time
+          </button>
         </motion.div>
 
         {/* Closing message */}

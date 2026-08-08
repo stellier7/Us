@@ -38,13 +38,19 @@ export default function IntensityPage() {
     <PageTransition className="min-h-screen flex flex-col items-center justify-center p-8">
       <div className="max-w-2xl w-full space-y-12">
         {/* Heading */}
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-heading font-semibold text-center"
+          className="space-y-3"
         >
-          How intense does this feel?
-        </motion.h1>
+          <h1 className="text-heading font-semibold text-center">
+            How intense does this feel?
+          </h1>
+          <p className="text-center text-sm text-accent-light max-w-md mx-auto">
+            Above a 7, your body may be &ldquo;flooded&rdquo; &mdash; that&apos;s a physiological
+            state, not a character flaw. It&apos;s okay.
+          </p>
+        </motion.div>
 
         {/* Slider */}
         <motion.div

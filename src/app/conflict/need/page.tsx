@@ -52,13 +52,19 @@ export default function NeedPage() {
     <PageTransition className="min-h-screen flex flex-col items-center justify-center p-8 py-16">
       <div className="max-w-2xl w-full space-y-8">
         {/* Heading */}
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-heading font-semibold text-center mb-8"
+          className="space-y-3 mb-8"
         >
-          What do you need most?
-        </motion.h1>
+          <h1 className="text-heading font-semibold text-center">
+            What do you need most?
+          </h1>
+          <p className="text-center text-sm text-accent-light">
+            Naming a need is easier to hear than a complaint &mdash; it&apos;s the core idea
+            behind Nonviolent Communication.
+          </p>
+        </motion.div>
 
         {/* Options */}
         <motion.div

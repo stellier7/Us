@@ -66,13 +66,15 @@ export default function GuidePage() {
         </div>
 
         {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-body text-accent text-center"
-        >
-          When you&apos;re ready to talk, try saying:
-        </motion.h2>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2 text-center">
+          <h2 className="text-body text-accent">
+            When you&apos;re ready to talk, try saying:
+          </h2>
+          <p className="text-sm text-accent-light">
+            These use &ldquo;I&rdquo; statements &mdash; a Nonviolent Communication technique
+            that lowers defensiveness.
+          </p>
+        </motion.div>
 
         {/* Sentence */}
         <AnimatePresence mode="wait">

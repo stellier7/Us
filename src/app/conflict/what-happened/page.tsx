@@ -69,10 +69,20 @@ export default function WhatHappenedPage() {
         <motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-heading font-semibold text-center mb-12"
+          className="text-heading font-semibold text-center mb-3"
         >
           What happened?
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.05 }}
+          className="text-center text-sm text-accent-light mb-8"
+        >
+          Naming what happened, without judgment, is the first step therapists use to help
+          your nervous system settle.
+        </motion.p>
 
         {/* Text display with live transcript */}
         <motion.div

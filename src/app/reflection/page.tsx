@@ -83,6 +83,17 @@ export default function ReflectionPage() {
           <ProgressIndicator current={currentStep + 1} total={questions.length} />
         </div>
 
+        {currentStep === 0 && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center text-sm text-accent-light -mt-4"
+          >
+            These questions borrow from how therapists help couples slow their thinking down
+            before talking &mdash; separating facts from the story we tell ourselves.
+          </motion.p>
+        )}
+
         {/* Question */}
         <AnimatePresence mode="wait">
           <motion.div

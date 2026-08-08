@@ -70,9 +70,15 @@ export default function PausePage() {
             className="max-w-2xl w-full space-y-12"
           >
             {/* Heading */}
-            <h1 className="text-heading font-semibold text-center">
-              Take the time you need
-            </h1>
+            <div className="space-y-3">
+              <h1 className="text-heading font-semibold text-center">
+                Take the time you need
+              </h1>
+              <p className="text-center text-sm text-accent-light max-w-md mx-auto">
+                It takes about 20 minutes for a flooded body to physically calm down &mdash;
+                this pause is doing real work, not avoiding the problem.
+              </p>
+            </div>
 
             {/* Time pickers */}
             <div className="flex justify-center gap-8">
@@ -167,6 +173,7 @@ export default function PausePage() {
               >
                 <p>My partner is not my enemy.</p>
                 <p>I don&apos;t have to solve this right now.</p>
+                <p>My body is calming down, even if I can&apos;t feel it yet.</p>
                 <p>I will come back.</p>
               </motion.div>
 
